@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>periodic <table></table></title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="Quizgame.css">
+    <link rel="stylesheet" href="../../background.css">
+    <link rel="stylesheet" href="../../color.css">
+    <link rel="stylesheet" href="../../navbar.css">
+</head>
+<body>
+    <!-- Background -->
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Tab Navigation -->
+          <nav class="tab-nav" aria-label="Điều hướng chính">
+        <a href="../../index.html" class="tab-btn">
+            <span class="tab-icon">🏠</span>
+            <span>Trang chủ</span>
+        </a>        <a href="../../periodic table/periodic.html" class="tab-btn">
+            <span class="tab-icon">📊</span>
+            <span>Bảng tuần hoàn</span>
+        </a>        <a href="../../GAME/Memorygame/Memorygame.html" class="tab-btn">
+            <span class="tab-icon">🎴</span>
+            <span>Lật thẻ</span>
+        </a>        <a href="../../GAME/Quizgame/Quizgame.html" class="tab-btn active" aria-current="page">
+            <span class="tab-icon">❓</span>
+            <span>Đố vui</span>
+        </a>        <a href="../../GAME/50Questionsgame/50Questionsgame.html" class="tab-btn">
+            <span class="tab-icon">🧪</span>
+            <span>50 câu hỏi</span>
+        </a>        <a href="../../GAME/Multiplayer game/multiplayer.html" class="tab-btn">
+            <span class="tab-icon">⚔️</span>
+            <span>Multiplayer</span>
+        </a>        <a href="../../ACCOUNT/login.html" class="tab-btn">
+            <span class="tab-icon">🔐</span>
+            <span>Đăng nhập</span>
+        </a>        <a href="../../ACCOUNT/signup.html" class="tab-btn signup-nav-btn">
+            <span class="tab-icon">✨</span>
+            <span>Đăng kí</span>
+        </a>    </nav>
+
+    <!-- Tab: Quiz Game -->
+    <div id="quizTab" class="tab-content">
+        <div class="game-container">
+            <div class="game-header">
+                <h2 class="game-title">❓ Đố Vui Nguyên Tố</h2>
+                <p class="game-desc">Trả lời nhanh để ghi điểm cao!</p>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-box">
+                    <span class="stat-icon">❓</span>
+                    <span class="stat-label">Câu hỏi</span>
+                    <span class="stat-value"><span id="quizCurrent">0</span>/<span id="quizTotalQ">10</span></span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">✅</span>
+                    <span class="stat-label">Đúng</span>
+                    <span class="stat-value" id="quizCorrect">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">⏱️</span>
+                    <span class="stat-label">Thời gian</span>
+                    <span class="stat-value" id="quizTimer">10</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">⭐</span>
+                    <span class="stat-label">Điểm</span>
+                    <span class="stat-value" id="quizScore">0</span>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <div class="quiz-mode-selector">
+                    <label>Chế độ:</label>
+                    <button class="mode-btn active" data-mode="symbol">Ký hiệu → Tên</button>
+                    <button class="mode-btn" data-mode="name">Tên → Ký hiệu</button>
+                    <button class="mode-btn" data-mode="config">Cấu hình e⁻</button>
+                    <button class="mode-btn" data-mode="mixed">Hỗn hợp</button>
+                </div>
+                <button class="start-btn" id="startQuiz">🚀 Bắt Đầu</button>
+            </div>
+            <div class="quiz-area" id="quizArea">
+                <div class="quiz-question intro-card" id="quizQuestion">
+                    <div class="question-symbol" id="questionSymbol">⚗️</div>
+                    <div class="question-text" id="questionText">Sẵn sàng thử phản xạ hóa học? Chọn chế độ rồi bấm bắt đầu để mở câu hỏi đầu tiên.</div>
+                    <div class="quiz-intro-badges">
+                        <span>🧪 10 câu hỏi nhanh</span>
+                        <span>⏱️ 10 giây mỗi câu</span>
+                        <span>⭐ Tính điểm theo tốc độ</span>
+                    </div>
+                </div>
+                <div class="quiz-options intro-options" id="quizOptions">
+                    <div class="quiz-intro-tile"><span>🔤</span><strong>Ký hiệu ↔ Tên</strong><small>Ôn nhận diện nguyên tố</small></div>
+                    <div class="quiz-intro-tile"><span>⚛️</span><strong>Cấu hình e⁻</strong><small>Nhìn cấu hình đoán nguyên tố</small></div>
+                    <div class="quiz-intro-tile"><span>🎲</span><strong>Hỗn hợp</strong><small>Đổi kiểu câu hỏi liên tục</small></div>
+                    <div class="quiz-intro-tile"><span>🚀</span><strong>Phản xạ nhanh</strong><small>Trả lời càng sớm càng nhiều điểm</small></div>
+                </div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+            </div>
+            <div class="quiz-progress">
+                <div class="progress-bar" id="quizProgress"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../periodic table/Elementdata.js"></script>
+    <script src="Quizgame.js"></script>
+    <script src="../../ACCOUNT/authState.js"></script>
+</body>
+</html>
+
+
+
+
+

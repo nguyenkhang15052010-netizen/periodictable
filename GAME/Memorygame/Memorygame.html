@@ -1,0 +1,116 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>periodic <table></table></title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="Memorygame.css">
+    <link rel="stylesheet" href="../../background.css">
+    <link rel="stylesheet" href="../../color.css">
+    <link rel="stylesheet" href="../../navbar.css">
+</head>
+
+    <body>
+
+
+    <!-- BACKGROUND -->
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Tab Navigation -->
+         <nav class="tab-nav" aria-label="Điều hướng chính">
+        <a href="../../index.html" class="tab-btn">
+            <span class="tab-icon">🏠</span>
+            <span>Trang chủ</span>
+        </a>        <a href="../../periodic table/periodic.html" class="tab-btn">
+            <span class="tab-icon">📊</span>
+            <span>Bảng tuần hoàn</span>
+        </a>        <a href="../../GAME/Memorygame/Memorygame.html" class="tab-btn active" aria-current="page">
+            <span class="tab-icon">🎴</span>
+            <span>Lật thẻ</span>
+        </a>        <a href="../../GAME/Quizgame/Quizgame.html" class="tab-btn">
+            <span class="tab-icon">❓</span>
+            <span>Đố vui</span>
+        </a>        <a href="../../GAME/50Questionsgame/50Questionsgame.html" class="tab-btn">
+            <span class="tab-icon">🧪</span>
+            <span>50 câu hỏi</span>
+        </a>        <a href="../../GAME/Multiplayer game/multiplayer.html" class="tab-btn">
+            <span class="tab-icon">⚔️</span>
+            <span>Multiplayer</span>
+        </a>        <a href="../../ACCOUNT/login.html" class="tab-btn">
+            <span class="tab-icon">🔐</span>
+            <span>Đăng nhập</span>
+        </a>        <a href="../../ACCOUNT/signup.html" class="tab-btn signup-nav-btn">
+            <span class="tab-icon">✨</span>
+            <span>Đăng kí</span>
+        </a>    </nav>
+
+
+        <!-- Tab: Memory Game -->
+    <div id="memoryTab" class="tab-content">
+        <div class="game-container">
+            <div class="game-header">
+                <h2 class="game-title">🎴 Trò Chơi Lật Thẻ</h2>
+                <p class="game-desc">Ghép ký hiệu nguyên tố với tên của chúng!</p>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-box">
+                    <span class="stat-icon">⏱️</span>
+                    <span class="stat-label">Thời gian</span>
+                    <span class="stat-value" id="memoryTimer">00:00</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">🎯</span>
+                    <span class="stat-label">Lượt lật</span>
+                    <span class="stat-value" id="memoryMoves">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">✅</span>
+                    <span class="stat-label">Đã ghép</span>
+                    <span class="stat-value" id="memoryMatches">0/<span id="memoryTotal">0</span></span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">⭐</span>
+                    <span class="stat-label">Điểm</span>
+                    <span class="stat-value" id="memoryScore">0</span>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <div class="difficulty-selector">
+                    <label>Độ khó:</label>
+                    <button class="diff-btn active" data-pairs="6">Dễ (6 cặp)</button>
+                    <button class="diff-btn" data-pairs="10">Trung bình (10 cặp)</button>
+                    <button class="diff-btn" data-pairs="15">Khó (15 cặp)</button>
+                </div>
+                <div class="element-range-selector">
+                    <label>Phạm vi nguyên tố:</label>
+                    <select id="elementRange">
+                        <option value="1-20">Nguyên tố 1-20 (Phổ biến)</option>
+                        <option value="1-36">Chu kỳ 1-4 (1-36)</option>
+                        <option value="1-54">Chu kỳ 1-5 (1-54)</option>
+                        <option value="alkali">Kim loại kiềm</option>
+                        <option value="halogen">Halogen</option>
+                        <option value="noble">Khí hiếm</option>
+                        <option value="random">Ngẫu nhiên</option>
+                    </select>
+                </div>
+                <button class="start-btn" id="startMemory">🚀 Bắt Đầu Chơi</button>
+            </div>
+
+            <div class="memory-board" id="memoryBoard"></div>
+
+            <div class="game-message" id="memoryMessage"></div>
+        </div>
+    </div>
+    <!-- JAVA SCRIPT -->
+    <script src="../../periodic table/Elementdata.js"></script>
+    <script src="Memorygame.js"></script>
+    <script src="../../ACCOUNT/authState.js"></script>
+</body>
+</html>
+

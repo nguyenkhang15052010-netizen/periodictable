@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>periodic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="periodic.css">
+    <link rel="stylesheet" href="../background.css">
+    <link rel="stylesheet" href="../color.css">
+    <link rel="stylesheet" href="../navbar.css">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+        <!-- Background -->
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>🔬 Bảng Tuần Hoàn Hóa Học</h1>
+        <p class="subtitle">Khám phá 118 nguyên tố - Chương trình Hóa học lớp 10</p>
+    </header>
+
+
+
+
+    <!-- Background -->
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+
+
+
+
+    
+    <!-- Tab Navigation -->
+        <nav class="tab-nav" aria-label="Điều hướng chính">
+        <a href="../index.html" class="tab-btn">
+            <span class="tab-icon">🏠</span>
+            <span>Trang chủ</span>
+        </a>        <a href="../periodic table/periodic.html" class="tab-btn active" aria-current="page">
+            <span class="tab-icon">📊</span>
+            <span>Bảng tuần hoàn</span>
+        </a>        <a href="../GAME/Memorygame/Memorygame.html" class="tab-btn">
+            <span class="tab-icon">🎴</span>
+            <span>Lật thẻ</span>
+        </a>        <a href="../GAME/Quizgame/Quizgame.html" class="tab-btn">
+            <span class="tab-icon">❓</span>
+            <span>Đố vui</span>
+        </a>        <a href="../GAME/50Questionsgame/50Questionsgame.html" class="tab-btn">
+            <span class="tab-icon">🧪</span>
+            <span>50 câu hỏi</span>
+        </a>        <a href="../GAME/Multiplayer game/multiplayer.html" class="tab-btn">
+            <span class="tab-icon">⚔️</span>
+            <span>Multiplayer</span>
+        </a>        <a href="../ACCOUNT/login.html" class="tab-btn">
+            <span class="tab-icon">🔐</span>
+            <span>Đăng nhập</span>
+        </a>        <a href="../ACCOUNT/signup.html" class="tab-btn signup-nav-btn">
+            <span class="tab-icon">✨</span>
+            <span>Đăng kí</span>
+        </a>    </nav>
+
+
+
+
+
+
+
+
+
+
+    <!-- Tab: Table -->
+    <div id="tableTab" class="tab-content active">
+        <!-- Trend Arrows Indicator -->
+        <div class="trend-arrows-container" id="trendArrowsContainer">
+            <!-- Characters Section -->
+            <div class="characters-section">
+                <!-- Anh Kim Loại -->
+                <div class="character-card metallic-char">
+                    <div class="character-avatar metallic-avatar">
+                        <div class="char-body metallic-body">
+                            <div class="char-head">
+                                <div class="char-helmet">
+                                    <div class="helmet-spike"></div>
+                                </div>
+                                <div class="char-face">
+                                    <div class="char-eyes">
+                                        <div class="char-eye left"></div>
+                                        <div class="char-eye right"></div>
+                                    </div>
+                                    <div class="char-mouth happy"></div>
+                                </div>
+                            </div>
+                            <div class="char-torso metallic-armor">
+                                <div class="armor-detail"></div>
+                                <div class="char-arm left">
+                                    <div class="muscle-flex">💪</div>
+                                </div>
+                                <div class="char-arm right">
+                                    <div class="giving-hand">
+                                        <span class="electron-give">e⁻</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="char-shield">⚔️</div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="char-name metallic-name">🔩 Anh Kim Loại</h3>
+                        <div class="char-traits">
+                            <span class="trait">💪 To khỏe</span>
+                            <span class="trait">⚔️ Áo giáp</span>
+                            <span class="trait">🎁 Cho e⁻</span>
+                        </div>
+                        <p class="char-quote">"Mình mạnh mẽ, thích NHƯỜNG electron!"</p>
+                    </div>
+                </div>
+
+                <!-- Transfer Animation -->
+                <div class="electron-transfer">
+                    <div class="transfer-arrow">
+                        <span class="electron-particle">e⁻</span>
+                        <span class="electron-particle delay1">e⁻</span>
+                        <span class="electron-particle delay2">e⁻</span>
+                    </div>
+                    <div class="transfer-text">NHƯỜNG → NHẬN</div>
+                </div>
+
+                <!-- Cô Phi Kim -->
+                <div class="character-card nonmetallic-char">
+                    <div class="character-avatar nonmetallic-avatar">
+                        <div class="char-body nonmetallic-body">
+                            <div class="char-head">
+                                <div class="char-hair">
+                                    <div class="hair-strand s1"></div>
+                                    <div class="hair-strand s2"></div>
+                                    <div class="hair-strand s3"></div>
+                                    <div class="flower-accessory">🌸</div>
+                                </div>
+                                <div class="char-face">
+                                    <div class="char-eyes cute">
+                                        <div class="char-eye left sparkle"></div>
+                                        <div class="char-eye right sparkle"></div>
+                                    </div>
+                                    <div class="char-blush left"></div>
+                                    <div class="char-blush right"></div>
+                                    <div class="char-mouth smile"></div>
+                                </div>
+                            </div>
+                            <div class="char-torso nonmetallic-dress">
+                                <div class="dress-pattern"></div>
+                                <div class="char-arm left receiving">
+                                    <div class="receiving-hand">
+                                        <span class="gift-icon">🎁</span>
+                                    </div>
+                                </div>
+                                <div class="char-arm right">
+                                    <span class="electron-receive">e⁻</span>
+                                </div>
+                            </div>
+                            <div class="sparkles">
+                                <span class="sparkle s1">✨</span>
+                                <span class="sparkle s2">✨</span>
+                                <span class="sparkle s3">✨</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="char-name nonmetallic-name">💎 Cô Phi Kim</h3>
+                        <div class="char-traits">
+                            <span class="trait">🌸 Nhẹ nhàng</span>
+                            <span class="trait">🎁 Thích quà</span>
+                            <span class="trait">💝 Nhận e⁻</span>
+                        </div>
+                        <p class="char-quote">"Mình dễ thương, thích NHẬN electron!"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slogan -->
+            <div class="slogan-section">
+                <div class="slogan-box">
+                    <div class="slogan-line">
+                        <span class="slogan-icon">🔩</span>
+                        <span class="slogan-text metallic-text">Kim loại CHO</span>
+                        <span class="slogan-divider">–</span>
+                        <span class="slogan-text nonmetallic-text">Phi kim NHẬN</span>
+                        <span class="slogan-icon">💎</span>
+                    </div>
+                    <div class="slogan-line">
+                        <span class="slogan-icon">⬅ï¸</span>
+                        <span class="slogan-text metallic-text">TRÁI kim loại</span>
+                        <span class="slogan-divider">–</span>
+                        <span class="slogan-text nonmetallic-text">PHẢI phi kim</span>
+                        <span class="slogan-icon">➡️</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trend Indicators -->
+            <div class="trend-indicator">
+                <div class="trend-row">
+                    <span class="trend-label metallic">🔩 Tính Kim Loại</span>
+                    <span class="trend-arrow-icon">⬅️</span>
+                    <span class="trend-description">giảm dần</span>
+                    <span class="trend-arrow-icon right">➡️</span>
+                    <span class="trend-label nonmetallic">💎 Tính Phi Kim</span>
+                    <span class="trend-description">tăng dần</span>
+                </div>
+            </div>
+            <div class="trend-indicator">
+                <div class="trend-row">
+                    <span class="trend-arrow-icon down">⬇️</span>
+                    <span class="trend-label metallic">🔩 Tính Kim Loại tăng</span>
+                    <span style="margin: 0 20px; color: var(--text-secondary);">|</span>
+                    <span class="trend-arrow-icon" style="color: #a78bfa;">⬆️</span>
+                    <span class="trend-label nonmetallic">💎 Tính Phi Kim tăng</span>
+                </div>
+            </div>
+        </div>
+
+            <!-- Tab: 3D Spiral -->
+    <div id="spiralTab" class="tab-content">
+        <div class="spiral-container">
+            <div class="spiral-header">
+                <h2 class="spiral-title">🌀 Bảng Tuần Hoàn 3D Xoắn Ốc</h2>
+                <p class="spiral-desc">Khám phá các nguyên tố theo dạng xoắn ốc 3D tương tác</p>
+            </div>
+
+            <div class="spiral-controls">
+                <div class="spiral-control-group">
+                    <label>Chế độ hiển thị:</label>
+                    <button class="spiral-btn active" data-view="helix">Xoắn Ốc</button>
+                    <button class="spiral-btn" data-view="tower">Tháp 3D</button>
+                    <button class="spiral-btn" data-view="galaxy">Thiên Hà</button>
+                </div>
+                <div class="spiral-control-group">
+                    <label>Tốc độ xoay:</label>
+                    <input type="range" id="rotationSpeed" min="0" max="100" value="30" class="spiral-slider">
+                </div>
+                <div class="spiral-control-group">
+                    <label>Zoom:</label>
+                    <input type="range" id="zoomLevel" min="20" max="100" value="60" class="spiral-slider">
+                </div>
+                <button class="spiral-reset-btn" id="resetSpiralView">🔄 Reset View</button>
+            </div>
+
+            <div class="spiral-legend">
+                <div class="spiral-legend-item" data-cat="alkali"><span class="leg-dot" style="background: #ff6b6b;"></span>Kim loại kiềm</div>
+                <div class="spiral-legend-item" data-cat="alkaline"><span class="leg-dot" style="background: #ffa94d;"></span>Kim loại kiềm thổ</div>
+                <div class="spiral-legend-item" data-cat="transition"><span class="leg-dot" style="background: #ffd43b;"></span>Kim loại chuyển tiếp</div>
+                <div class="spiral-legend-item" data-cat="post-transition"><span class="leg-dot" style="background: #69db7c;"></span>Kim loại yếu</div>
+                <div class="spiral-legend-item" data-cat="metalloid"><span class="leg-dot" style="background: #38d9a9;"></span>Á kim</div>
+                <div class="spiral-legend-item" data-cat="nonmetal"><span class="leg-dot" style="background: #4dabf7;"></span>Phi kim</div>
+                <div class="spiral-legend-item" data-cat="halogen"><span class="leg-dot" style="background: #748ffc;"></span>Halogen</div>
+                <div class="spiral-legend-item" data-cat="noble"><span class="leg-dot" style="background: #da77f2;"></span>Khí hiếm</div>
+                <div class="spiral-legend-item" data-cat="lanthanide"><span class="leg-dot" style="background: #f783ac;"></span>Lantanit</div>
+                <div class="spiral-legend-item" data-cat="actinide"><span class="leg-dot" style="background: #e599f7;"></span>Actinit</div>
+            </div>
+
+            <div class="spiral-3d-wrapper">
+                <div id="spiral3DCanvas"></div>
+                <div class="spiral-element-info" id="spiralElementInfo">
+                    <div class="info-symbol"></div>
+                    <div class="info-name"></div>
+                    <div class="info-details"></div>
+                </div>
+            </div>
+
+            <div class="spiral-instructions">
+                <span>🖱ï¸ Kéo để xoay</span>
+                <span>🔍 Cuộn để zoom</span>
+                <span>👆 Click nguyên tố để xem chi tiết</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="elementModal">
+            <button class="modal-close" id="modalClose">×</button>
+
+            <!-- Header: Symbol + Name/Pronunciation/Category -->
+            <div class="modal-header">
+                <div class="modal-symbol" id="modalSymbol">
+                    <span class="number" id="modalNumber"></span>
+                    <span class="symbol" id="modalSymbolText"></span>
+                </div>
+                <div class="modal-title">
+                    <h2 id="modalName"></h2>
+                    <div class="pronunciation-section">
+                        <span class="ipa-text" id="modalIPA"></span>
+                        <button class="speak-btn" id="speakBtn" title="Phát âm">🔊</button>
+                    </div>
+                    <div class="category" id="modalCategory"></div>
+                </div>
+            </div>
+
+            <!-- Body: Models on left, Info on right -->
+            <div class="modal-body">
+                <!-- Left side: Atom model -->
+                <div class="modal-left">
+                    <div class="atom-models-container">
+                        <div class="atom-model-wrapper">
+                            <div class="model-label">Mô hình 3D</div>
+                            <div class="atom-model" id="atomModel"></div>
+                        </div>
+                    </div>
+                    <!-- Fun fact at bottom of left side -->
+                    <div class="fun-fact">
+                        <div class="fun-fact-label">💡 Thông tin thú vị</div>
+                        <div class="fun-fact-text" id="modalFact"></div>
+                    </div>
+                </div>
+
+                <!-- Right side: Element properties -->
+                <div class="modal-right">
+                    <div class="modal-content">
+                        <div class="info-card">
+                            <label>Khối lượng nguyên tử</label>
+                            <div class="value" id="modalMass"></div>
+                        </div>
+                        <div class="info-card">
+                            <label>Độ âm điện</label>
+                            <div class="value" id="modalElectronegativity"></div>
+                        </div>
+                        <div class="info-card">
+                            <label>Chu kỳ</label>
+                            <div class="value" id="modalPeriod"></div>
+                        </div>
+                        <div class="info-card">
+                            <label>Nhóm</label>
+                            <div class="value" id="modalGroup"></div>
+                        </div>
+                        <div class="info-card">
+                            <label>Trạng thái</label>
+                            <div class="value" id="modalState"></div>
+                        </div>
+                        <div class="info-card">
+                            <label>Năm phát hiện</label>
+                            <div class="value" id="modalYear"></div>
+                        </div>
+                        <div class="info-card full">
+                            <label>Cấu hình electron</label>
+                            <div class="value electron-config" id="modalConfig"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Controls and Periodic Table -->
+        <div class="table-layout">
+            <aside class="controls" aria-label="Tìm kiếm và phân loại nguyên tố">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Tìm nguyên tố...">
+                </div>
+                <div class="view-controls">
+                    <div class="comparison-header">
+                        <span class="comparison-icon">🧭</span>
+                        <span class="comparison-title">Chế độ hiển thị</span>
+                    </div>
+                    <div class="view-buttons">
+                        <button class="view-tab-btn active" data-tab="table"><span class="btn-icon">📊</span><span>Bảng tuần hoàn</span></button>
+                        <button class="view-tab-btn" data-tab="spiral"><span class="btn-icon">🌀</span><span>3D xoắn ốc</span></button>
+                    </div>
+                </div>
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="metal">Kim loại</button>
+                <button class="filter-btn" data-filter="nonmetal">Phi kim</button>
+                <button class="filter-btn" data-filter="gas">Khí hiếm</button>
+
+                <div class="comparison-controls">
+                    <div class="comparison-header">
+                        <span class="comparison-icon">📊</span>
+                        <span class="comparison-title">Chế độ so sánh</span>
+                    </div>
+                    <div class="comparison-buttons">
+                        <button class="compare-btn" data-compare="none"><span class="btn-icon">🔲</span><span>Mặc định</span></button>
+                        <button class="compare-btn" data-compare="radius"><span class="btn-icon">⭕</span><span>Bán kính</span></button>
+                        <button class="compare-btn" data-compare="electronegativity"><span class="btn-icon">⚡</span><span>Độ âm điện</span></button>
+                        <button class="compare-btn" data-compare="metallic-nonmetallic"><span class="btn-icon">🔩💎</span><span>Tính KL/PK</span></button>
+                    </div>
+                    <div class="comparison-legend" id="comparisonLegend"></div>
+                    <div class="comparison-info" id="comparisonInfo"></div>
+                </div>
+
+                <div class="legend" aria-label="Phân loại chi tiết">
+                    <div class="legend-item" data-category="alkali"><div class="legend-color" style="background: var(--alkali)"></div><span>Kim loại kiềm</span></div>
+                    <div class="legend-item" data-category="alkaline"><div class="legend-color" style="background: var(--alkaline)"></div><span>Kim loại kiềm thổ</span></div>
+                    <div class="legend-item" data-category="transition"><div class="legend-color" style="background: var(--transition)"></div><span>Kim loại chuyển tiếp</span></div>
+                    <div class="legend-item" data-category="post-transition"><div class="legend-color" style="background: var(--post-transition)"></div><span>Kim loại yếu</span></div>
+                    <div class="legend-item" data-category="metalloid"><div class="legend-color" style="background: var(--metalloid)"></div><span>Á kim</span></div>
+                    <div class="legend-item" data-category="nonmetal"><div class="legend-color" style="background: var(--nonmetal)"></div><span>Phi kim</span></div>
+                    <div class="legend-item" data-category="halogen"><div class="legend-color" style="background: var(--halogen)"></div><span>Halogen</span></div>
+                    <div class="legend-item" data-category="noble"><div class="legend-color" style="background: var(--noble)"></div><span>Khí hiếm</span></div>
+                    <div class="legend-item" data-category="lanthanide"><div class="legend-color" style="background: var(--lanthanide)"></div><span>Lantanit</span></div>
+                    <div class="legend-item" data-category="actinide"><div class="legend-color" style="background: var(--actinide)"></div><span>Actinit</span></div>
+                </div>
+            </aside>
+
+            <div class="table-container">
+                <div class="periodic-table" id="periodicTable"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- JAVA SCRIPT -->
+    <script src="periodic.js"></script>
+
+
+    <script src="../ACCOUNT/authState.js"></script>
+</body>
+</html>
+
