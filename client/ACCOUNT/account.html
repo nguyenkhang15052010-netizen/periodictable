@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản | Bảng Tuần Hoàn Hóa Học</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../color.css">
+    <link rel="stylesheet" href="../background.css">
+    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="account.css">
+
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+        <nav class="tab-nav" aria-label="Điều hướng chính">
+        <a href="../index.html" class="tab-btn">
+            <span class="tab-icon">🏠</span>
+            <span>Trang chủ</span>
+        </a>        <a href="../periodic table/periodic.html" class="tab-btn">
+            <span class="tab-icon">📊</span>
+            <span>Bảng tuần hoàn</span>
+        </a>        <a href="../GAME/Memorygame/Memorygame.html" class="tab-btn">
+            <span class="tab-icon">🎴</span>
+            <span>Lật thẻ</span>
+        </a>        <a href="../GAME/Quizgame/Quizgame.html" class="tab-btn">
+            <span class="tab-icon">❓</span>
+            <span>Đố vui</span>
+        </a>        <a href="../GAME/50Questionsgame/50Questionsgame.html" class="tab-btn">
+            <span class="tab-icon">🧪</span>
+            <span>50 câu hỏi</span>
+        </a>        <a href="../GAME/Multiplayer game/multiplayer.html" class="tab-btn">
+            <span class="tab-icon">⚔️</span>
+            <span>Multiplayer</span>
+        </a>        <a href="../ACCOUNT/account.html" class="tab-btn active account-nav-btn" aria-current="page">
+            <span class="tab-icon">👤</span>
+            <span>Tài khoản</span>
+        </a>    </nav>
+
+    <main class="account-page">
+        <section class="profile-hero" aria-label="Thông tin người dùng">
+            <article class="profile-card">
+                <div class="account-badge">🧬 Hồ sơ học Hóa</div>
+
+                <div class="avatar-ring" aria-label="Avatar người dùng">
+                    <div class="avatar">🧑‍🔬</div>
+                    <div class="avatar-level"><div><small>LV</small><span id="accountLevelBadge">0</span></div></div>
+                </div>
+
+                <h1 class="username" id="accountUsername">Dang tai...</h1>
+                <p class="email" id="accountEmail">--</p>
+                <div class="status-pill">🔥 Chuỗi học tập: 7 ngày</div>
+
+                <div class="blooket-row" aria-label="Thành tích nhanh">
+                    <div class="mini-card"><strong>42</strong>Trận thắng</div>
+                    <div class="mini-card"><strong>96%</strong>Độ chính xác</div>
+                    <div class="mini-card"><strong>118</strong>Nguyên tố</div>
+                </div>
+            </article>
+
+            <div class="profile-side">
+                <article class="progress-card">
+                    <div class="section-title">
+                        <h2>Tiến độ tài khoản</h2>
+                        <span>Season Neon</span>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-tile">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-label">Level</div>
+                            <div class="stat-value" id="accountLevel">0</div>
+                        </div>
+                        <div class="stat-tile">
+                            <div class="stat-icon">⚡</div>
+                            <div class="stat-label">EXP</div>
+                            <div class="stat-value" id="accountExp">0</div>
+                        </div>
+                        <div class="stat-tile">
+                            <div class="stat-icon">🪙</div>
+                            <div class="stat-label">Coins</div>
+                            <div class="stat-value" id="accountCoins">0</div>
+                        </div>
+                    </div>
+
+                    <div class="exp-panel" aria-label="Thanh kinh nghiệm">
+                        <div class="exp-top">
+                            <span>EXP tới Level 19</span>
+                            <strong id="accountExpText">0 / 1,000</strong>
+                        </div>
+                        <div class="exp-bar">
+                            <div class="exp-fill" id="accountExpFill"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="action-card">
+                    <div class="section-title">
+                        <h2>Cài đặt nhanh</h2>
+                        <span>⚙ï¸ Profile</span>
+                    </div>
+
+                    <div class="action-grid" aria-label="Các nút cài đặt tài khoản">
+                        <button class="account-btn primary" id="changeAvatarBtn" type="button">🎨 Đổi avatar</button>
+                        <button class="account-btn primary" id="changeUsernameBtn" type="button">✏️ Đổi username</button>
+                        <button class="account-btn warning" id="changePasswordBtn" type="button">🔑 Đổi mật khẩu</button>
+                        <button class="account-btn logout" type="button">🚪 Đăng xuất</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="authState.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng kí | Bảng Tuần Hoàn Hóa Học</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../color.css">
+    <link rel="stylesheet" href="../background.css">
+    <link rel="stylesheet" href="../navbar.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        .auth-shell {
+            width: min(1120px, calc(100% - 32px));
+            min-height: calc(100vh - 120px);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(360px, 0.95fr) minmax(0, 1.05fr);
+            gap: 36px;
+            align-items: center;
+            padding: 32px 0 56px;
+        }
+
+        .brand-panel,
+        .auth-card {
+            position: relative;
+            border-radius: 34px;
+            backdrop-filter: blur(20px);
+        }
+
+        .brand-panel {
+            padding: clamp(24px, 4vw, 48px);
+            border: 1px solid rgba(255, 41, 168, 0.2);
+            background:
+                radial-gradient(circle at 20% 18%, rgba(255, 41, 168, 0.18), transparent 35%),
+                radial-gradient(circle at 78% 74%, rgba(0, 245, 255, 0.18), transparent 38%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34), inset 0 0 30px rgba(255, 41, 168, 0.05);
+            overflow: hidden;
+        }
+
+        .brand-panel::before {
+            content: '';
+            position: absolute;
+            inset: -45%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 41, 168, 0.15), transparent, rgba(0, 245, 255, 0.13), transparent);
+            animation: orbitGlow 18s linear infinite;
+        }
+
+        .brand-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border: 1px solid rgba(255, 41, 168, 0.3);
+            border-radius: 999px;
+            color: var(--glow-pink);
+            background: rgba(255, 41, 168, 0.08);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .brand-title {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            line-height: 1.06;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--glow-pink), var(--glow-purple), var(--glow-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 24px rgba(255, 41, 168, 0.24));
+        }
+
+        .brand-desc {
+            max-width: 600px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 22px 0 28px;
+            font-size: 1.02rem;
+        }
+
+        .learning-path {
+            display: grid;
+            gap: 14px;
+        }
+
+        .path-step {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 14px;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.065);
+        }
+
+        .path-step .num {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(0,245,255,.22), rgba(255,41,168,.24));
+            font-family: 'Be Vietnam Pro', sans-serif;
+            color: var(--glow-cyan);
+        }
+
+        .path-step small {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .auth-card {
+            padding: clamp(24px, 4vw, 38px);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            background: rgba(18, 18, 42, 0.78);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
+        }
+
+        .auth-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,41,168,.5), rgba(184,41,255,.28), rgba(0,245,255,.45));
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .auth-heading {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .auth-icon {
+            width: 74px;
+            height: 74px;
+            margin: 0 auto 16px;
+            display: grid;
+            place-items: center;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255,41,168,.25), rgba(0,245,255,.25));
+            box-shadow: 0 0 35px rgba(255, 41, 168, 0.22);
+            font-size: 2.2rem;
+        }
+
+        .auth-heading h1 {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2.15rem);
+            margin-bottom: 8px;
+        }
+
+        .auth-heading p {
+            color: var(--text-secondary);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap span {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 15px 16px 15px 46px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.07);
+            color: var(--text-primary);
+            font: inherit;
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+        .auth-input:focus {
+            border-color: rgba(255, 41, 168, 0.7);
+            box-shadow: 0 0 0 4px rgba(255, 41, 168, 0.1), 0 0 22px rgba(255, 41, 168, 0.18);
+        }
+
+        .check-line {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 4px 0 20px;
+        }
+
+        .auth-link {
+            color: var(--glow-cyan);
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .auth-link:hover {
+            color: var(--glow-pink);
+        }
+
+        .tab-nav {
+            position: relative;
+            z-index: 30;
+            margin-top: 0;
+        }
+
+        .tab-btn.active {
+            border-color: rgba(255, 41, 168, 0.62);
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.18), rgba(184, 41, 255, 0.2), rgba(255, 41, 168, 0.18));
+            box-shadow: 0 0 24px rgba(184, 41, 255, 0.24);
+        }
+
+        .auth-btn {
+            width: 100%;
+            border: 0;
+            border-radius: 18px;
+            padding: 16px 20px;
+            color: white;
+            font: inherit;
+            font-weight: 900;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--glow-pink), var(--glow-purple), var(--glow-cyan));
+            box-shadow: 0 16px 34px rgba(255, 41, 168, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 44px rgba(255, 41, 168, 0.28);
+        }
+
+        .switch-auth {
+            margin-top: 24px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @keyframes orbitGlow {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 900px) {
+            .auth-shell {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+        <nav class="tab-nav" aria-label="Điều hướng chính">
+        <a href="../index.html" class="tab-btn">
+            <span class="tab-icon">🏠</span>
+            <span>Trang chủ</span>
+        </a>        <a href="../periodic table/periodic.html" class="tab-btn">
+            <span class="tab-icon">📊</span>
+            <span>Bảng tuần hoàn</span>
+        </a>        <a href="../GAME/Memorygame/Memorygame.html" class="tab-btn">
+            <span class="tab-icon">🎴</span>
+            <span>Lật thẻ</span>
+        </a>        <a href="../GAME/Quizgame/Quizgame.html" class="tab-btn">
+            <span class="tab-icon">❓</span>
+            <span>Đố vui</span>
+        </a>        <a href="../GAME/50Questionsgame/50Questionsgame.html" class="tab-btn">
+            <span class="tab-icon">🧪</span>
+            <span>50 câu hỏi</span>
+        </a>        <a href="../GAME/Multiplayer game/multiplayer.html" class="tab-btn">
+            <span class="tab-icon">⚔️</span>
+            <span>Multiplayer</span>
+        </a>        <a href="../ACCOUNT/login.html" class="tab-btn">
+            <span class="tab-icon">🔐</span>
+            <span>Đăng nhập</span>
+        </a>        <a href="../ACCOUNT/signup.html" class="tab-btn active signup-nav-btn" aria-current="page">
+            <span class="tab-icon">✨</span>
+            <span>Đăng kí</span>
+        </a>    </nav>
+
+    <main class="auth-shell">
+        <section class="auth-card" aria-label="Biểu mẫu đăng kí">
+            <div class="auth-heading">
+                <div class="auth-icon">✨</div>
+                <h1>Tạo tài khoản</h1>
+                <p>Bắt đầu lưu tiến độ học Hóa của riêng bạn.</p>
+            </div>
+
+            <form id="signupForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName">Tên</label>
+                        <div class="input-wrap">
+                            <span>🧑</span>
+                            <input class="auth-input" type="text" id="username" name="firstName" placeholder="VD: An" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="className">Lớp</label>
+                        <div class="input-wrap">
+                            <span>🏫</span>
+                            <input class="auth-input" type="text" id="className" name="className" placeholder="VD: 10A1">
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="email">Email</label>
+                        <div class="input-wrap">
+                            <span>📧</span>
+                            <input class="auth-input" type="email" id="email" name="email" placeholder="VD: hoahoc10@gmail.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="password">Mật khẩu</label>
+                        <div class="input-wrap">
+                            <span>🔑</span>
+                            <input class="auth-input" type="password" id="password" name="password" placeholder="Tối thiểu 8 kí tự" minlength="8" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="confirmPassword">Xác nhận mật khẩu</label>
+                        <div class="input-wrap">
+                            <span>✅</span>
+                            <input class="auth-input" type="password" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu" minlength="8" required>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="check-line">
+                    <input type="checkbox" required>
+                    <span>Mình đồng ý với điều khoản học tập và muốn nhận thử thách Hóa học mới.</span>
+                </label>
+
+                <button class="auth-btn" type="submit">🧬 Tạo tài khoản học Hóa</button>
+            </form>
+
+            <p class="switch-auth">
+                Đã có tài khoản?
+                <a href="login.html" class="auth-link">Đăng nhập ngay</a>
+            </p>
+        </section>
+
+        <section class="brand-panel">
+            <div class="brand-content">
+                <div class="eyebrow">🚀 Bắt đầu hành trình nguyên tố</div>
+                <h2 class="brand-title">Học Hóa như chơi game</h2>
+                <p class="brand-desc">
+                    Tạo tài khoản để biến việc học bảng tuần hoàn thành một hành trình có nhiệm vụ, điểm số và tiến bộ từng ngày.
+                </p>
+                <div class="learning-path">
+                    <div class="path-step"><div class="num">01</div><div><strong>Khám phá</strong><br><small>Xem nguyên tố trong bảng tuần hoàn và mô hình 3D.</small></div></div>
+                    <div class="path-step"><div class="num">02</div><div><strong>Luyện tập</strong><br><small>Chơi lật thẻ, đố vui và 50 câu hỏi hóa học.</small></div></div>
+                    <div class="path-step"><div class="num">03</div><div><strong>Ghi nhớ</strong><br><small>Ôn theo phản xạ, màu sắc và nhóm nguyên tố.</small></div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const particles = document.getElementById('particles');
+        if (particles) {
+            for (let i = 0; i < 34; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particle.style.background = ['#00f5ff', '#b829ff', '#ff29a8'][Math.floor(Math.random() * 3)];
+                particles.appendChild(particle);
+            }
+        }
+    </script>
+
+    <script src="authState.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>
+

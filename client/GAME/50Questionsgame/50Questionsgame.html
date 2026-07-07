@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>periodic <table></table></title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="50Questionsgame.css">
+    <link rel="stylesheet" href="../../background.css">
+    <link rel="stylesheet" href="../../color.css">
+    <link rel="stylesheet" href="../../navbar.css">
+</head>
+<body>
+    <!-- Background -->
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Tab Navigation -->
+        <nav class="tab-nav" aria-label="Điều hướng chính">
+        <a href="../../index.html" class="tab-btn">
+            <span class="tab-icon">🏠</span>
+            <span>Trang chủ</span>
+        </a>        <a href="../../periodic table/periodic.html" class="tab-btn">
+            <span class="tab-icon">📊</span>
+            <span>Bảng tuần hoàn</span>
+        </a>        <a href="../../GAME/Memorygame/Memorygame.html" class="tab-btn">
+            <span class="tab-icon">🎴</span>
+            <span>Lật thẻ</span>
+        </a>        <a href="../../GAME/Quizgame/Quizgame.html" class="tab-btn">
+            <span class="tab-icon">❓</span>
+            <span>Đố vui</span>
+        </a>        <a href="../../GAME/50Questionsgame/50Questionsgame.html" class="tab-btn active" aria-current="page">
+            <span class="tab-icon">🧪</span>
+            <span>50 câu hỏi</span>
+        </a>        <a href="../../GAME/Multiplayer game/multiplayer.html" class="tab-btn">
+            <span class="tab-icon">⚔️</span>
+            <span>Multiplayer</span>
+        </a>        <a href="../../ACCOUNT/login.html" class="tab-btn">
+            <span class="tab-icon">🔐</span>
+            <span>Đăng nhập</span>
+        </a>        <a href="../../ACCOUNT/signup.html" class="tab-btn signup-nav-btn">
+            <span class="tab-icon">✨</span>
+            <span>Đăng kí</span>
+        </a>    </nav>
+
+       <!-- Tab: Trivia 50 Questions -->
+    <div id="triviaTab" class="tab-content">
+        <div class="trivia-container">
+            <div class="trivia-header">
+                <h2 class="trivia-title">🧪 50 Câu Hỏi Hóa Học</h2>
+                <p class="trivia-desc">Khám phá lịch sử, nguồn gốc, tính chất và ứng dụng của các nguyên tố!</p>
+            </div>
+
+            <div class="trivia-stats">
+                <div class="stat-box">
+                    <span class="stat-icon">❓</span>
+                    <span class="stat-label">Câu hỏi</span>
+                    <span class="stat-value"><span id="triviaCurrent">0</span>/50</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">✅</span>
+                    <span class="stat-label">Đúng</span>
+                    <span class="stat-value" id="triviaCorrect">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">❌</span>
+                    <span class="stat-label">Sai</span>
+                    <span class="stat-value" id="triviaWrong">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">⭐</span>
+                    <span class="stat-label">Điểm</span>
+                    <span class="stat-value" id="triviaScore">0</span>
+                </div>
+            </div>
+
+            <div class="trivia-controls">
+                <div class="trivia-category-selector">
+                    <label>Chủ đề:</label>
+                    <select id="triviaCategory">
+                        <option value="all">Tất cả chủ đề</option>
+                        <option value="history">Lịch sử & Nguồn gốc</option>
+                        <option value="physical">Tính chất Vật lý</option>
+                        <option value="chemical">Tính chất Hóa học</option>
+                        <option value="application">Ứng dụng</option>
+                        <option value="discovery">Phát hiện & Nhà khoa học</option>
+                    </select>
+                </div>
+                <div class="trivia-difficulty-selector">
+                    <label>Độ khó:</label>
+                    <button class="trivia-diff-btn active" data-difficulty="easy">Dễ</button>
+                    <button class="trivia-diff-btn" data-difficulty="medium">Trung bình</button>
+                    <button class="trivia-diff-btn" data-difficulty="hard">Khó</button>
+                </div>
+                <button class="start-btn" id="startTrivia">🚀 Bắt Đầu Thử Thách</button>
+            </div>
+
+            <div class="trivia-game-area" id="triviaGameArea">
+                <div class="trivia-question-card" id="triviaQuestionCard">
+                    <div class="trivia-question-header">
+                        <span class="trivia-category-badge" id="triviaCategoryBadge">Lịch sử</span>
+                        <span class="trivia-difficulty-badge" id="triviaDifficultyBadge">Dễ</span>
+                    </div>
+                    <div class="trivia-question-text" id="triviaQuestionText">
+                        Nhấn "Bắt Đầu Thử Thách" để bắt đầu!
+                    </div>
+                    <div class="trivia-hint" id="triviaHint"></div>
+                    <div class="trivia-options" id="triviaOptions"></div>
+                    <div class="trivia-feedback" id="triviaFeedback"></div>
+                    <div class="trivia-explanation" id="triviaExplanation"></div>
+                </div>
+
+                <div class="trivia-progress-container">
+                    <div class="trivia-progress-bar">
+                        <div class="trivia-progress-fill" id="triviaProgressFill"></div>
+                    </div>
+                    <div class="trivia-progress-dots" id="triviaProgressDots"></div>
+                </div>
+
+                <div class="trivia-actions">
+                    <button class="trivia-action-btn hint-btn" id="triviaHintBtn" title="Xem gợi ý">💡 Gợi ý</button>
+                    <button class="trivia-action-btn skip-btn" id="triviaSkipBtn" title="Bỏ qua câu này">⏭️ Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="50Questionsgame.js"></script>
+    <script src="../../ACCOUNT/authState.js"></script>
+</body>
+</html>
+

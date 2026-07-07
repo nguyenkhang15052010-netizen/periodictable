@@ -1,0 +1,29 @@
+﻿        :root {
+            --bg-primary: #0a0a1a;
+            --bg-secondary: #12122a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0c0;
+            --glow-cyan: #00f5ff;
+            --glow-purple: #b829ff;
+            --glow-pink: #ff29a8;
+
+            /* Element category colors */
+            --alkali: #ff6b6b;
+            --alkaline: #ffa94d;
+            --transition: #ffd43b;
+            --post-transition: #69db7c;
+            --metalloid: #38d9a9;
+            --nonmetal: #4dabf7;
+            --halogen: #748ffc;
+            --noble: #da77f2;
+            --lanthanide: #f783ac;
+            --actinide: #e599f7;
+            --unknown: #868e96;
+        }
+
+        .light {
+            --bg-primary: #f0f4f8;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+        }

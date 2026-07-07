@@ -1,0 +1,93 @@
+﻿/* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(184, 41, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 41, 168, 0.05) 0%, transparent 70%),
+                var(--bg-primary);
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -14px;
+            width: 7px;
+            height: 7px;
+            background: var(--glow-cyan);
+            border-radius: 0;
+            clip-path: polygon(
+                50% 0%, 60% 40%,
+                100% 50%, 60% 60%,
+                50% 100%, 40% 60%,
+                0% 50%, 40% 40%
+            );
+            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+            opacity: 0;
+            animation: starFloat 15s infinite linear both;
+            will-change: transform, opacity;
+        }
+
+        @keyframes starFloat {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.45);
+                opacity: 0;
+            }
+            12% { opacity: 0.75; }
+            88% { opacity: 0.75; }
+            100% {
+                transform: translateY(calc(-100vh - 28px)) rotate(180deg) scale(1.15);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            perspective: 1000px;
+        }
+
+        h1 {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--glow-cyan), var(--glow-purple), var(--glow-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            transform: rotateX(10deg);
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 40px rgba(184, 41, 255, 0.8)); }
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+* {
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+
