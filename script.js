@@ -1,4 +1,4 @@
-﻿// Speech synthesis function
+// Speech synthesis function
         let currentSpeech = null;
         function speakElement(elementName) {
             // Cancel any ongoing speech
@@ -1415,7 +1415,7 @@
 
             infoPanel.querySelector('.info-symbol').textContent = element.symbol;
             infoPanel.querySelector('.info-symbol').style.color = colorHex;
-            infoPanel.querySelector('.info-name').innerHTML = `${element.nameVi}<br><small style="opacity:0.7">${element.name}</small>`;
+            infoPanel.querySelector('.info-name').textContent = element.name;
             infoPanel.querySelector('.info-details').innerHTML = `
                 <div>Số nguyên tử: <strong>${element.number}</strong></div>
                 <div>Chu kỳ: <strong>${element.period}</strong> | Nhóm: <strong>${element.group}</strong></div>
