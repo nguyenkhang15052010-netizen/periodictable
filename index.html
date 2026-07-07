@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Tuần Hoàn Hóa Học 3D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body class="home-page">
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+        <nav class="tab-nav" aria-label="Điều hướng chính">
+        <a href="index.html" class="tab-btn active" aria-current="page">
+            <span class="tab-icon">🏠</span>
+            <span>Trang chủ</span>
+        </a>        <a href="periodic table/periodic.html" class="tab-btn">
+            <span class="tab-icon">📊</span>
+            <span>Bảng tuần hoàn</span>
+        </a>        <a href="GAME/Memorygame/Memorygame.html" class="tab-btn">
+            <span class="tab-icon">🎴</span>
+            <span>Lật thẻ</span>
+        </a>        <a href="GAME/Quizgame/Quizgame.html" class="tab-btn">
+            <span class="tab-icon">❓</span>
+            <span>Đố vui</span>
+        </a>        <a href="GAME/50Questionsgame/50Questionsgame.html" class="tab-btn">
+            <span class="tab-icon">🧪</span>
+            <span>50 câu hỏi</span>
+        </a>        <a href="GAME/Multiplayer game/multiplayer.html" class="tab-btn">
+            <span class="tab-icon">⚔️</span>
+            <span>Multiplayer</span>
+        </a>        <a href="ACCOUNT/login.html" class="tab-btn">
+            <span class="tab-icon">🔐</span>
+            <span>Đăng nhập</span>
+        </a>        <a href="ACCOUNT/signup.html" class="tab-btn signup-nav-btn">
+            <span class="tab-icon">✨</span>
+            <span>Đăng kí</span>
+        </a>    </nav>
+
+    <main class="landing-shell">
+        <section class="hero-stage" aria-label="Mở đầu trang web">
+            <div class="floating-feature feature-1">
+                <span>🌌</span>
+                <strong>3D xoắn ốc</strong>
+                <small>Quan sát nguyên tố theo không gian tương tác.</small>
+            </div>
+
+            <div class="floating-feature feature-2">
+                <span>📏</span>
+                <strong>So sánh bán kính</strong>
+                <small>Nhìn ngay ô lớn, ô nhỏ để hiểu xu hướng.</small>
+            </div>
+
+            <div class="floating-feature feature-3">
+                <span>🎴</span>
+                <strong>Lật thẻ ghi nhớ</strong>
+                <small>Học tên, kí hiệu và số hiệu bằng phản xạ.</small>
+            </div>
+
+            <div class="floating-feature feature-4">
+                <span>⚡</span>
+                <strong>Đố vui nguyên tố</strong>
+                <small>Trả lời nhanh, nhớ lâu hơn từng nguyên tố.</small>
+            </div>
+
+            <div class="floating-feature feature-5">
+                <span>🧬</span>
+                <strong>50 câu hỏi hóa học</strong>
+                <small>Ôn tập kiến thức lớp 10 thật gọn và vui.</small>
+            </div>
+
+            <div class="hero-orb hero-orb-cyan"></div>
+            <div class="hero-orb hero-orb-pink"></div>
+
+            <article class="hero-card">
+                <div class="hero-badge">🔬 Không gian học Hóa tương tác</div>
+                <h1>Bảng Tuần Hoàn Hóa Học</h1>
+                <p>
+                    Khám phá 118 nguyên tố bằng bảng tuần hoàn 3D, trò chơi ghi nhớ,
+                    đố vui phản xạ và các chế độ so sánh trực quan.
+                </p>
+                <div class="hero-actions" id="homeGuestActions">
+                    <a class="primary-cta" href="ACCOUNT/signup.html">🚀 Bắt đầu ngay</a>
+                    <a class="secondary-cta" href="ACCOUNT/login.html">Đăng nhập</a>
+                </div>
+                <div class="hero-welcome" id="homeWelcome" hidden>
+                    <span>Chào mừng</span>
+                    <strong id="homeWelcomeName">bạn</strong>
+                    <span>đã trở lại</span>
+                </div>
+                <div class="hero-stats" aria-label="Tóm tắt tính năng">
+                    <div><strong>118</strong><span>nguyên tố</span></div>
+                    <div><strong>3D</strong><span>trực quan</span></div>
+                    <div><strong>3+</strong><span>trò chơi</span></div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="ACCOUNT/authState.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const guestActions = document.getElementById("homeGuestActions");
+            const welcome = document.getElementById("homeWelcome");
+            const welcomeName = document.getElementById("homeWelcomeName");
+
+            if (!guestActions || !welcome || !welcomeName || !window.AuthState) {
+                return;
+            }
+
+            const getDisplayName = (user) => {
+                const username = user && typeof user.username === "string" ? user.username.trim() : "";
+                const email = user && typeof user.email === "string" ? user.email.trim() : "";
+                return username || email || "bạn";
+            };
+
+            const showWelcome = (user) => {
+                welcomeName.textContent = getDisplayName(user);
+                guestActions.hidden = true;
+                welcome.hidden = false;
+            };
+
+            if (!window.AuthState.getAuthToken()) {
+                return;
+            }
+
+            const cachedUser = window.AuthState.getStoredUser();
+            if (cachedUser) {
+                showWelcome(cachedUser);
+            }
+
+            try {
+                const freshUser = await window.AuthState.fetchCurrentUser();
+                if (freshUser) {
+                    showWelcome(freshUser);
+                }
+            } catch (err) {
+                if (!cachedUser) {
+                    guestActions.hidden = false;
+                    welcome.hidden = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
